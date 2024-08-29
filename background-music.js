@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
   var audio = document.createElement('audio');
   audio.id = "background-music";
   audio.loop = true;
