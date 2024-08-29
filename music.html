@@ -1,77 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>배경음악 재생</title>
-  <style>
-    body {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
-    }
-    #controls {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    button {
-      margin: 5px;
-      padding: 10px 20px;
-      font-size: 16px;
-    }
-    input[type="range"] {
-      width: 200px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Music</title>
 </head>
 <body>
-  <div id="controls">
-    <button id="playPauseBtn">일시정지</button>
-    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" />
-  </div>
-
-  <audio id="backgroundMusic" autoplay loop>
-    <source src="https://dl.dropboxusercontent.com/scl/fi/seu58idknor1vdiugf7d4/The-Piano-Guys-All-of-Me.mp3?rlkey=hi9uwtg79xv7w5schuzyls4b6&dl=1" type="audio/mp3" />
-    당신의 브라우저는 오디오 태그를 지원하지 않습니다.
-  </audio>
-
-  <script>
-    const audio = document.getElementById('backgroundMusic');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const volumeControl = document.getElementById('volumeControl');
-
-    // 재생/일시정지 버튼 기능
-    playPauseBtn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        playPauseBtn.textContent = '일시정지';
-      } else {
-        audio.pause();
-        playPauseBtn.textContent = '재생';
-      }
-    });
-
-    // 볼륨 조절 기능
-    volumeControl.addEventListener('input', () => {
-      audio.volume = volumeControl.value;
-    });
-
-    // 이전 재생 위치 복원
-    window.addEventListener('load', () => {
-      const savedTime = localStorage.getItem('bgm_currentTime');
-      if (savedTime) {
-        audio.currentTime = savedTime;
-      }
-    });
-
-    // 재생 위치 저장
-    audio.addEventListener('timeupdate', () => {
-      localStorage.setItem('bgm_currentTime', audio.currentTime);
-    });
-  </script>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="https://dl.dropboxusercontent.com/scl/fi/seu58idknor1vdiugf7d4/The-Piano-Guys-All-of-Me.mp3?rlkey=hi9uwtg79xv7w5schuzyls4b6&st=cvisz7uk&dl=1" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>
